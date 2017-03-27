@@ -16,6 +16,9 @@
 #include <iostream>
 #include <iterator>
 #include <limits>
+#include <netinet/in.h>
+#include <pthread.h>
+#include <sys/socket.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
@@ -23,5 +26,10 @@
 #include <unistd.h>
 #include <vector>
 #include <wait.h>
+
+using namespace std;
+
+/*FUNCTION DECLARATIONS*/
+void readDictionary();
 
 #endif //PROJECT3_WITTECKSERVER_H
