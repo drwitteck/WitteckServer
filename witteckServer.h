@@ -31,5 +31,6 @@ using namespace std;
 
 /*FUNCTION DECLARATIONS*/
 void readDictionary();
+void *getSocket();
 
 #endif //PROJECT3_WITTECKSERVER_H

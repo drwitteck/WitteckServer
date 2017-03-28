@@ -23,32 +23,57 @@
 
 #include "witteckServer.h"
 
+const string defaultDictionary = "defaultDictionary";
+const int defaultPort = 1095;
+const int numWorkerThreads = 6;
+
 /*void readDictionary{
 
 };*/
 
+void *getSocket(){
+
+}
+
 int main(int argc, char *argv[]) {
 
+    /*User entered variables*/
     int userEnteredPort = argc;                //Holds the user entered port argument
     string userEnteredDictionary = argv[0];    //Holds the user entered dictionary argument
+
+    /*Thread variables*/
+    pthread_t worker1, worker2, worker3, worker4, worker5, worker6;
+
+
+    /*Socket variables*/
     int connectedSocket;
     int listeningSocket;
     struct sockaddr_in server;
+    socklen_t socketLength = 5;
 
     connectedSocket = socket(AF_INET, SOCK_STREAM, 0);
 
-    while(true){
-        connectedSocket = accept(listeningSocket);
+    /*while(true){
+        //connectedSocket = accept(listeningSocket,); //accept takes int sockfd, struct sockaddr *addr, socklen_t *addrlen
+        //add connectedSocket to the work queue
+        //signal any sleeping workers that there is a new socket in the queue
 
         break;
-    }
-
+    }*/
 
     /*if (userPort == 1025){
         //use port 1025
     } else{
         //use default port
     }*/
+
+    pthread_create(&worker1,NULL,getSocket,NULL);
+    pthread_create(&worker2,NULL,getSocket,NULL);
+    pthread_create(&worker3,NULL,getSocket,NULL);
+    pthread_create(&worker4,NULL,getSocket,NULL);
+    pthread_create(&worker5,NULL,getSocket,NULL);
+    pthread_create(&worker6,NULL,getSocket,NULL);
+
 
     if(userEnteredDictionary == NULL){
         ifstream defaultDictionary;        //File stream to open the dictionary file
